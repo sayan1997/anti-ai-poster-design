@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Music classes - Ledger layout (information-heavy, dark ground)</title>
+<!-- Sample content for demonstration. Academy name and phone are placeholders. -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Inter:wght@400;600&family=Hind+Siliguri:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: 1080px 1350px; margin: 0; }
+  :root {
+    --ground:#161616; --support:#3A3A3A; --accent:#FF9F1C; --ink:#F5F1E8;
+    --font-display:"Fraunces","DM Serif Display",Georgia,serif;
+    --font-text:"Inter","Helvetica Neue",Arial,sans-serif;
+    --font-indic:"Hind Siliguri","Noto Sans Bengali",sans-serif;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { width:1080px; height:1350px; background:var(--ground); }
+  .poster { position:relative; width:1080px; height:1350px; overflow:hidden; background:var(--ground);
+    color:var(--ink); font-family:var(--font-text); padding:78px 86px; display:flex; flex-direction:column; }
+  .meta { font-size:30px; font-weight:600; letter-spacing:0.04em; display:flex; justify-content:space-between; }
+  .bn { font-family:var(--font-indic); letter-spacing:0; font-size:34px; font-weight:500; }
+  .display { font-family:var(--font-display); font-weight:700; font-size:230px; line-height:0.98;
+    letter-spacing:-0.02em; margin-top:110px; }
+  .display em { font-style:normal; color:var(--accent); }
+  .ledger { margin-top:auto; border-top:2px solid var(--ink); display:flex; flex-wrap:wrap; }
+  .row { width:50%; font-size:46px; font-weight:600; padding:26px 0 26px 0; border-bottom:1px solid var(--support); }
+  .row:nth-child(even) { padding-left:40px; border-left:1px solid var(--support); }
+  .action { margin-top:56px; display:flex; align-items:center; justify-content:space-between; }
+  .cta { background:var(--accent); color:var(--ground); font-size:44px; font-weight:600; padding:26px 48px; border-radius:12px; }
+  .contact { font-size:44px; font-weight:600; letter-spacing:0.02em; }
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="meta"><span>[Academy name]</span><span class="bn">ভর্তি চলছে</span></div>
+  <div class="display">Learn<br>to <em>sing.</em></div>
+
+  <div class="ledger">
+    <div class="row">Vocal training</div>
+    <div class="row">Rabindrasangeet</div>
+    <div class="row">Folk songs</div>
+    <div class="row">Harmonium</div>
+    <div class="row">Tabla</div>
+    <div class="row">Music theory</div>
+  </div>
+
+  <div class="action">
+    <div class="cta">Call to enrol</div>
+    <div class="contact">[PHONE]</div>
+  </div>
+</div>
+</body>
+</html>

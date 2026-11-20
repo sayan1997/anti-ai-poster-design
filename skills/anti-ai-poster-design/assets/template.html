@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Poster - replace me</title>
+<!--
+  ANTI-AI POSTER TEMPLATE  (layout A: "Giant Word")
+  Canvas 1080 x 1350 px (4:5). Change the two numbers in .poster and @page together.
+
+  HOW TO USE
+  1. Pick a palette from references/design-system.md and paste 4 hex values into :root.
+  2. Replace the copy. Keep it under ~25 words in total.
+  3. Keep 3 type sizes (display / support / detail) + 1 meta size. Do not add more.
+  4. Delete anything you do not need. Do NOT add borders, icons, badges, gradients, shadows.
+  5. Render: python scripts/render_poster.py poster.html poster.png
+  6. Audit:  python scripts/poster_lint.py poster.html
+
+  Fonts: loaded from Google Fonts when online; falls back to installed fonts or generic ones.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&family=Hind+Siliguri:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: 1080px 1350px; margin: 0; }
+
+  :root {
+    --ground:  #F2E6D3;   /* 60%  background               */
+    --support: #C9633A;   /* 30%  big shape or second ink   */
+    --accent:  #2B5B4A;   /* 10%  one call-to-action        */
+    --ink:     #2A1D17;   /* text                           */
+
+    --font-display: "Bebas Neue", "Oswald", Impact, sans-serif;
+    --font-text:    "Inter", "Helvetica Neue", Arial, sans-serif;
+    --font-indic:   "Hind Siliguri", "Noto Sans Bengali", sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; height: 1350px; background: var(--ground); }
+
+  .poster {
+    position: relative;
+    width: 1080px; height: 1350px;
+    overflow: hidden;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--font-text);
+    padding: 78px 86px 78px 86px;      /* ~7% margin; nothing crosses it */
+    display: flex; flex-direction: column;
+  }
+
+  /* ---- META ROW: brand left, date right. Smallest text on the poster (2.2% of H). ---- */
+  .meta {
+    font-size: 30px; font-weight: 600; letter-spacing: 0.04em;
+    display: flex; justify-content: space-between;
+  }
+
+  /* ---- DISPLAY: the poster. One or two words. ---- */
+  .display {
+    margin-top: 70px; margin-left: -6px;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 520px;          /* ~38% of canvas height */
+    line-height: 0.86;
+    letter-spacing: -0.01em;
+    color: var(--support);
+  }
+
+  /* ---- SUPPORT: what is offered, max 2 lines (4.3% of H). ---- */
+  .support {
+    margin-top: auto;          /* pushes support + action to the bottom, leaving calm space */
+    width: 800px;
+    font-size: 58px; font-weight: 600; line-height: 1.2;
+  }
+
+  /* ---- ACTION ROW: one call-to-action, one contact. ---- */
+  .action {
+    margin-top: 56px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .cta {
+    background: var(--accent); color: var(--ground);
+    font-size: 44px; font-weight: 600;
+    padding: 26px 48px;
+    border-radius: 12px;       /* the ONLY filled container on the poster */
+  }
+  .contact { font-size: 44px; font-weight: 600; letter-spacing: 0.02em; }
+
+  /* ---- BENGALI / INDIC TEXT: add class="bn". No tracking, roomier leading, ~1.12x size. ---- */
+  .bn { font-family: var(--font-indic); letter-spacing: 0; line-height: 1.45; }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="meta"><span>Brand name</span><span>Sat 21 Nov</span></div>
+
+    <h1 class="display">Word</h1>
+
+    <p class="support">One clear sentence about what is offered, with the price.</p>
+
+    <div class="action">
+      <div class="cta">Call to order</div>
+      <div class="contact">[PHONE]</div>
+    </div>
+  </div>
+</body>
+</html>
