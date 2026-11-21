@@ -1,0 +1,14 @@
+# Never commit the raw research photos (they show real businesses and phone numbers)
+*.zip
+AI_Generated/
+Non_AI/
+research-photos/
+IMG*.jpg
+Screenshot*.png
+
+# Python / OS noise
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+dist/

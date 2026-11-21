@@ -1,6 +1,6 @@
 ---
 name: anti-ai-poster-design
-description: Design advertisement posters, banners, flyers, flex/hoarding artwork, menu boards, festival or puja banners, sale/offer graphics and social-media creatives that look deliberately human-designed instead of the stereotypical "AI-generated" look (gold gradient lettering, ornate filigree frames, a pill or ribbon behind every line, glossy glowing stock food, icon-in-circle grids, five fonts at once, garbled text). Use whenever the user asks to make, generate, design, redesign, critique or audit a poster, banner, flyer, ad creative or announcement graphic, or asks for an image-generation prompt for one, even if they never mention "AI look". Works with any model, producing HTML/SVG, an image-model prompt, or a written design spec.
+description: Design advertisement posters, banners, flyers, flex/hoarding artwork, menu boards, festival or puja banners, sale/offer graphics and social-media creatives that look deliberately human-designed instead of the stereotypical "AI-generated" look (gold gradient lettering, ornate filigree frames, a pill or ribbon behind every line, glossy glowing stock food, icon-in-circle grids, five fonts at once, garbled text). Use whenever the user asks to make, generate, design, redesign, critique or audit a poster, banner, flyer, ad creative or announcement graphic, or asks for an image-generation prompt for one, even if they never mention "AI look". Handles English, Bengali, Hindi and other Indic scripts. Works with any model, producing HTML/SVG, an image-model prompt, or a written design spec.
 ---
 
 # Anti-AI Poster Design
@@ -98,8 +98,8 @@ Festival, puja, jeweller and wedding banners may legitimately carry tradition. K
 - For deity or portrait imagery use real photographs or licensed artwork, or go type-only. Do not synthesize deity faces.
 - See `examples/puja-banner.html` for a worked case.
 
-## Indic and bilingual posters
-Bengali and other Indic scripts need real shaped text, one family, no effects, no letter-spacing, roomier line height and about 1.1x size relative to Latin. Do not repeat the same sentence in both scripts: the primary language carries the headline, the second carries *different* information. Read `references/bengali-and-indic-typography.md` before setting any Indic text; it also covers numerals, fonts and a restrained motif vocabulary for Bengal.
+## Indic and bilingual posters (Bengali, Hindi, other scripts)
+Bengali, Hindi (Devanagari) and other Indic scripts need real shaped text, one family, no effects, no letter-spacing, roomier line height, and about 1.1x size relative to Latin. Devanagari words are wide, so always render and check that the headline fits; keep the shirorekha (top line) intact by never tracking the text. Do not repeat the same sentence in both scripts: the primary language carries the headline, the second carries *different* information. Never improvise spellings (check the nukta in Hindi, conjuncts in Bengali) and avoid hype filler in every language ("धमाका ऑफर", "ধামাকা অফার", "fresh & pure"). Read `references/bengali-and-indic-typography.md` before setting any Indic text; sections 1-8 cover all Indic scripts and section 9 covers Hindi specifically, including fonts, numerals and festival posters.
 
 ## Reviewing an existing poster
 When asked to critique rather than create: list the tells by ID with what you see, give three highest-impact removals first, then propose a restructured layout using one skeleton, and offer to rebuild it. Quote measurements from `poster_pixels.py` if an image is available. Be specific and kind; focus on the design, not on whether AI made it.
@@ -107,8 +107,8 @@ When asked to critique rather than create: list the tells by ID with what you se
 ## Files
 - `references/ai-tells-catalog.md`: the evidence and the full list of tells (T/C/D/I/L/P IDs).
 - `references/design-system.md`: canvas sizes, five layout skeletons, type scale, ten palettes, font pairings, spacing, quality tests.
-- `references/bengali-and-indic-typography.md`: Indic rendering, sizing, bilingual layout, numerals, cultural notes.
+- `references/bengali-and-indic-typography.md`: Indic rendering, sizing, bilingual layout, numerals, cultural notes; Hindi/Devanagari in section 9.
 - `references/image-model-prompting.md`: two-stage workflow, prompt template, words to avoid, negative prompt.
 - `assets/template.html`: starter poster (Giant Word, 1080x1350).
 - `scripts/render_poster.py`, `scripts/poster_lint.py`, `scripts/poster_pixels.py`: render and audit.
-- `examples/`: three worked posters (`tea-stall`, `puja-banner`, `music-ledger`), each as HTML source + PNG.
+- `examples/`: four worked posters (`tea-stall` Bengali, `puja-banner` Bengali traditional mode, `music-ledger` English + Bengali, `jalebi-hindi` Hindi + English), each as HTML source + PNG.

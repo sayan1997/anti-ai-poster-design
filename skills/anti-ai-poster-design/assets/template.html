@@ -16,6 +16,8 @@
   6. Audit:  python scripts/poster_lint.py poster.html
 
   Fonts: loaded from Google Fonts when online; falls back to installed fonts or generic ones.
+  Hindi/Devanagari: add family=Noto+Sans+Devanagari:wght@500;800 to the link below and use class="bn" (works for any Indic script).
+  Check the headline fits: Devanagari words are wider than Latin ones.
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&family=Hind+Siliguri:wght@500;700&display=swap" rel="stylesheet">
@@ -30,7 +32,7 @@
 
     --font-display: "Bebas Neue", "Oswald", Impact, sans-serif;
     --font-text:    "Inter", "Helvetica Neue", Arial, sans-serif;
-    --font-indic:   "Hind Siliguri", "Noto Sans Bengali", sans-serif;
+    --font-indic:   "Hind Siliguri", "Noto Sans Bengali", "Noto Sans Devanagari", sans-serif;  /* Hindi: put "Noto Sans Devanagari" first */
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }

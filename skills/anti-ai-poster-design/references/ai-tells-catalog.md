@@ -25,6 +25,8 @@ Keep in mind when using the findings:
 4. **The reference set is itself template-flavored.** Type-behind-subject, checkerboards and blob shapes are fashionable template tropes now. Borrow the *principles* (section 5), not the look.
 5. One reference poster (a dark biryani composite with levitating ingredients) leans on tropes that also appear in generated imagery. Only its single-word giant headline and single hero subject were counted as good practice.
 
+6. **Regional scope.** The sample is from West Bengal, so the specific motifs (puja banners, Bengali display type) are Bengal-flavored. The principles (hierarchy, restraint, no invented facts) are language-independent; Hindi/Devanagari guidance was added from typographic practice, not from a sampled set.
+
 Fonts below are identified **by eye, by class** ("looks like an inscriptional Roman cap"), not by exact name.
 
 ---

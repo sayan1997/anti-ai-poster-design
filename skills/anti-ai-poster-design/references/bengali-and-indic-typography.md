@@ -1,6 +1,6 @@
-# Bengali and other Indic scripts on posters
+# Bengali, Hindi (Devanagari) and other Indic scripts on posters
 
-Applies to Bengali first, and in principle to Devanagari, Gurmukhi, Gujarati, Odia, Tamil, Telugu, Kannada, Malayalam. Generated posters tend to treat these scripts as decoration; treat them as real typography.
+Sections 1-8 apply to every Indic script and use Bengali as the main example. **Section 9 covers Hindi / Devanagari specifically** (also Marathi, Nepali). The same principles hold for Gurmukhi, Gujarati, Odia, Tamil, Telugu, Kannada and Malayalam: use a real shaped font, one family, no effects, no tracking. Noto Sans and Noto Serif exist for all of them as a safe default. Generated posters tend to treat these scripts as decoration; treat them as real typography.
 
 **Contents**
 1. Rendering rules
@@ -11,6 +11,7 @@ Applies to Bengali first, and in principle to Devanagari, Gurmukhi, Gujarati, Od
 6. Cultural and religious imagery
 7. A restrained motif vocabulary for Bengal
 8. Proofreading
+9. Hindi (Devanagari) specifics
 
 ---
 
@@ -86,3 +87,53 @@ Machine-written Bengali often contains wrong conjunct spelling, missing hasanta,
 2. Check that each string appears **exactly as the client wrote it** if they supplied it.
 3. If unsure of a word, **use a placeholder** such as `[নাম]` instead of guessing.
 4. Confirm the render (no boxes, no broken conjuncts) by looking at the actual output image.
+
+---
+
+## 9. Hindi (Devanagari) specifics
+
+The worked example is `examples/jalebi-hindi.html` (Hindi headline, English detail, one accent button).
+
+### Fonts (all free on Google Fonts)
+| Role | Font |
+|---|---|
+| Display (street poster) | Noto Sans Devanagari ExtraBold, Mukta ExtraBold, Hind Bold |
+| Text / detail | Hind Medium, Mukta Medium, Noto Sans Devanagari Medium |
+| Editorial serif | Tiro Devanagari Hindi |
+| Latin partner | Inter, DM Sans (match weight and x-height, not style) |
+
+Use **one Devanagari family**, two weights at most. Do not mix fonts inside a word or a line.
+
+### Rendering and spacing
+- **Shirorekha (the top line).** Letters in a word are joined by it. Letter-spacing must be **0**, or the line breaks into dashes. Keep the whole headline in one font.
+- **Matras above and below.** Vowel signs (ि ी े ै ो ौ) sit above, and (ु ू ृ) below. **Line-height 1.25-1.4 even for display sizes**; tight Latin-style leading (0.9) clips them.
+- **Width.** Devanagari words are wide. A 430 px headline overflowed a 1080 px canvas in testing, where the equivalent Latin word fit easily. Always render and check the fit; size the headline to the word, not to a fixed number.
+- **Size relative to Latin.** Devanagari looks smaller at the same font-size; set it about **1.1x** the Latin size next to English. Keep Devanagari body text at least **2.8% of canvas height**.
+- **No effects**: outline, shadow, bevel, gradient and glow muddy the shirorekha and conjuncts. No synthetic italic or bold.
+
+### Spelling and proofreading
+- **Nukta** (the dot) is often dropped by machines: ज़ फ़ क़ ख़ ग़ ड़ ढ़ (रोज़, फ़ौरन, ज़रूर, सड़क). Check each word.
+- **Chandrabindu vs. anusvara** (ँ vs. ं) and **conjuncts** (क्ष त्र ज्ञ श्र द्य) must render and be spelled correctly. Zoom into the actual render.
+- **Do not machine-translate slogans from English.** Write short, idiomatic copy a shopkeeper would say aloud. If unsure of a word, use a placeholder such as `[पता]` instead of guessing.
+- Names, committees and addresses: exactly as supplied, never improvised.
+
+### Copy: avoid hype filler
+Generic retail hype is the Hindi equivalent of "fresh & pure, real taste": *स्वाद का तड़का, ज़ायका लाजवाब, बेस्ट क्वालिटी, शुद्ध और ताज़ा, धमाका ऑफर, बंपर ऑफर, महा सेल, आपका अपना, जल्दी करें सीमित समय*. Replace each with something specific: the item, price, time and place. Keep the **poster to ~25 words**.
+
+### Bilingual Hindi + English
+Both patterns are normal in North India. Choose one:
+1. **Hindi leads**: Hindi headline and offer; English carries different details (hours, price line, website).
+2. **English leads**: English headline; Hindi carries the friendly invitation or the offer.
+
+Never repeat the same sentence in both. Latin words that people really say in English ("sale", "offer", "delivery") may stay in Latin script inside Hindi copy if the client uses them. Do not write Hindi in Latin letters (Hinglish transliteration) unless the client does.
+
+### Numerals, currency, dates
+- Use **Western digits (0-9)** for phone numbers and prices. Devanagari digits (०-९) are rare on commercial posters; if used, use them everywhere on that poster.
+- `₹` before the figure (`₹60`). No "ONLY", no fake strike-through "old price" unless supplied.
+- Phone numbers grouped 5 + 5 (`98XXX XXXXX`). Write month names in dates.
+
+### Festival posters (Diwali, Navratri, Ganesh Chaturthi, Holi, Chhath...)
+The same discipline as Section 6: type-led first; **no generated deity faces**; use real photographs or licensed artwork if an image is needed. If a motif is wanted, choose **one**, flat and one-color: rangoli geometry, a single diya shape, a marigold band, or simplified folk-art lines (Madhubani, Warli, Phad, Gond), or block-print repeats (Bagru, Sanganer). Never a collage of them.
+
+### Legibility check
+At 1/5 size the headline's shirorekha should still read as one bold bar and the words should remain separate. If counters fill in, reduce weight or increase size and spacing around it.

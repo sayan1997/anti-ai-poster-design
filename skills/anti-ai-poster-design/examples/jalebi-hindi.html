@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<title>Sweet shop - Giant Word layout (Hindi + English)</title>
+<!-- Sample content for demonstration. Shop name, address and price are placeholders/sample values. -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@500;800&family=Inter:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: 1080px 1350px; margin: 0; }
+  :root {
+    --ground:#F4C430; --support:#1F1A14; --accent:#C3402A; --ink:#1F1A14;
+    --font-indic:"Noto Sans Devanagari","Mukta","Hind",sans-serif;
+    --font-text:"Inter","Helvetica Neue",Arial,sans-serif;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { width:1080px; height:1350px; background:var(--ground); }
+  .poster { position:relative; width:1080px; height:1350px; overflow:hidden; background:var(--ground);
+    color:var(--ink); font-family:var(--font-text); padding:78px 86px; display:flex; flex-direction:column; }
+  .meta { font-size:32px; font-weight:600; letter-spacing:0.04em; display:flex; justify-content:space-between; }
+  .hi { font-family:var(--font-indic); letter-spacing:0; }
+  .display { font-family:var(--font-indic); font-weight:800; font-size:345px; line-height:1.3;
+    color:var(--support); margin-top:90px; margin-left:-6px; letter-spacing:0; }
+  .support { margin-top:auto; font-family:var(--font-indic); font-size:76px; font-weight:800; line-height:1.4;
+    letter-spacing:0; width:880px; }
+  .detail { margin-top:12px; font-size:44px; font-weight:500; }
+  .action { margin-top:56px; display:flex; align-items:center; justify-content:space-between; }
+  .cta { background:var(--accent); color:#FFF8EC; font-family:var(--font-indic); font-size:46px; font-weight:800;
+    padding:18px 50px 24px; border-radius:12px; letter-spacing:0; }
+  .where { font-family:var(--font-indic); font-size:44px; font-weight:500; letter-spacing:0; }
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="meta"><span>[Shop name]</span><span>5 pm - 10 pm</span></div>
+  <div class="display">जलेबी</div>
+  <p class="support">गरमागरम, रोज़ शाम को</p>
+  <p class="detail">Jalebi + rabri ₹60</p>
+  <div class="action">
+    <div class="cta">आज ही आइए</div>
+    <div class="where">[पता]</div>
+  </div>
+</div>
+</body>
+</html>

@@ -90,7 +90,7 @@ Rules:
 - **Nothing smaller than 2% of H.** If it needs to be smaller, it does not belong on a street poster.
 - **Scale contrast of at least 2.5:1** between display and support. Timid ratios (1.3, 1.5) read as "everything equal".
 - **Line length**: <= 28 characters per headline line, <= 45 for support.
-- **Leading**: Latin display 0.9-1.0, Latin text 1.25-1.4, Bengali/Indic 1.35-1.6 (see `bengali-and-indic-typography.md`).
+- **Leading**: Latin display 0.9-1.0, Latin text 1.25-1.4, Bengali/Devanagari/Indic 1.25-1.6 (see `bengali-and-indic-typography.md`).
 - **Letter-spacing**: Latin caps +2% to +6%; Latin display lowercase 0 to -2%; Indic scripts always 0.
 - **Case**: sentence case for everything except at most one short caps label.
 - **Alignment**: one left edge (or one right edge). Center only a poster with a single short element.
@@ -150,6 +150,15 @@ Inter, DM Sans, Work Sans, IBM Plex Sans, Source Sans 3.
 | Display | Anek Bangla (ExtraBold), Baloo Da 2 (ExtraBold), Noto Serif Bengali (Bold) |
 | Text | Hind Siliguri (Medium), Noto Sans Bengali, Anek Bangla (Regular) |
 | Editorial serif | Tiro Bangla |
+
+### Hindi / Devanagari
+| Role | Font |
+|---|---|
+| Display | Noto Sans Devanagari (ExtraBold), Mukta (ExtraBold), Hind (Bold) |
+| Text | Hind (Medium), Mukta (Medium), Noto Sans Devanagari (Medium) |
+| Editorial serif | Tiro Devanagari Hindi |
+
+Other Indic scripts: Noto Sans / Noto Serif in the matching script is a safe default.
 
 ### Be cautious with (over-used in generated "premium" posters)
 Cinzel / Trajan-style inscriptional caps; Playfair Display in gold; script faces such as Pacifico, Lobster, Dancing Script, Great Vibes, Sacramento; any bevelled or "3D gold" decorative display. They are not forbidden, but they are the default fingerprint of the AI look. Use them only when the client asks, and then flat, one at a time, with no effects.

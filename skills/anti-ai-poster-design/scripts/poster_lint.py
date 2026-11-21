@@ -42,6 +42,10 @@ CLICHE_PHRASES = [
     "where flavour meets", "culinary journey", "a symphony of", "tapestry", "redefin", "next level",
     "unparalleled", "your one-stop", "your one stop", "authentic taste", "mouth-watering",
     "mouthwatering", "finger-licking", "best in town", "100% pure", "heritage of", "since 18", "since 19",
+    # Hindi / Bengali retail hype (see references/bengali-and-indic-typography.md)
+    "स्वाद का तड़का", "ज़ायका लाजवाब", "जायका लाजवाब", "बेस्ट क्वालिटी", "शुद्ध और ताज़ा", "शुद्ध और ताजा",
+    "धमाका", "बंपर ऑफर", "बम्पर ऑफर", "महा सेल", "महासेल", "आपका अपना", "जल्दी करें", "सीमित समय",
+    "ধামাকা",
 ]
 
 ORNAMENT_CHARS = "❖✦✧❀❁✿❃❋☙❧⁂✺✹✸❂☸✥✤✣❦❥❤♛♔✪✫✬✭✮✯✰❄❅❆"
@@ -321,7 +325,7 @@ def run_checks(path, max_fonts, max_words):
         rep.add("WARN", "P1", "Cliche/generic copy: " + ", ".join(sorted(set(hits))[:6]) + ".",
                 "Replace with specifics: the dish, the price, the hour, the street.")
     # repeated multi-letter tokens (brand name repeated 3x)
-    toks = [w.lower() for w in re.findall(r"[A-Za-z\u0980-\u09FF]{4,}", text)]
+    toks = [w.lower() for w in re.findall(r"[A-Za-z\u0900-\u09FF]{4,}", text)]
     common = {"with", "from", "that", "this", "your", "have", "will", "free", "open", "call", "only", "from"}
     cnt = Counter(t for t in toks if t not in common)
     rep_tokens = [t for t, n in cnt.items() if n >= 3]
@@ -336,15 +340,17 @@ def run_checks(path, max_fonts, max_words):
         rep.add("WARN", "T9", "Multiple exclamation marks or ellipses.", "Calm, declarative copy.")
 
     # --- Indic: T7 ------------------------------------------------------------------
-    for m in re.finditer(r"([^{}]*(?:\.bn\b|\bbengali\b|\[lang=[\"']?bn|:lang\(bn\))[^{}]*)\{([^}]*)\}", src, re.I):
+    indic_sel = (r"(?:\.(?:bn|hi|mr|ne|indic)\b|\bbengali\b|\bdevanagari\b|\bhindi\b|"
+                 r"\[lang=[\"']?(?:bn|hi|mr|ne)|:lang\((?:bn|hi|mr|ne)\))")
+    for m in re.finditer(r"([^{}]*" + indic_sel + r"[^{}]*)\{([^}]*)\}", src, re.I):
         body = m.group(2)
         ls = re.search(r"letter-spacing\s*:\s*(-?[\d.]+)", body)
         if ls and float(ls.group(1)) != 0:
-            rep.add("WARN", "T7", "Letter-spacing on Bengali/Indic text breaks conjunct joins.", "Set letter-spacing: 0.")
+            rep.add("WARN", "T7", "Letter-spacing on Indic text breaks conjunct joins (and the Devanagari shirorekha).", "Set letter-spacing: 0.")
         if re.search(r"font-style\s*:\s*italic", body, re.I):
             rep.add("WARN", "T7", "Italic on Indic text (synthetic slant).", "Remove.")
     if re.search(r"[\u0980-\u09FF\u0900-\u097F]", raw) and not re.search(
-            r"(bengali|bangla|siliguri|devanagari|hind|noto|mukta|tiro|baloo|anek|galada|atma|lohit|kalpurush|sarabun|poppins)", src, re.I):
+            r"(bengali|bangla|siliguri|devanagari|hind|noto|mukta|tiro|baloo|anek|galada|atma|lohit|kalpurush|sarabun|poppins|khand|eczar|teko|rajdhani|yantramanav|martel|sahitya|laila|kalam)", src, re.I):
         rep.add("WARN", "T7", "Indic text present but no Indic-capable font is named.",
                 "Name a real font (e.g. Hind Siliguri, Anek Bangla) so shaping and glyph coverage are correct.")
 
